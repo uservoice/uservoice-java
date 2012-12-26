@@ -51,7 +51,7 @@ Making API calls
 You need to create an instance of UserVoice\\Client. Get API_KEY and API_SECRET for an API client which you can create
 from Admin Console. Go to Settings -> Channels -> API.
 
-```csharp
+```java
 
 try {
     com.uservoice.Client client = new com.uservoice.Client(USERVOICE_SUBDOMAIN, API_KEY, API_SECRET);
@@ -111,7 +111,7 @@ actually owns certain email address in UserVoice, you need to use 3-Legged API
 calls. Just pass your user an authorize link to click, so that user may grant
 your site permission to access his or her data in com.uservoice.
 
-```csharp
+```java
 
 final String callbackURL = "http://localhost:3000/"; // your site
 
