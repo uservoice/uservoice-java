@@ -119,7 +119,7 @@ com.uservoice.Client client = new com.uservoice.Client(USERVOICE_SUBDOMAIN, API_
 
 // At this point you want to print/redirect to client.AuthorizeURL in your application.
 // Here we just output them as this is a command-line example.
-System.out.println(string.Format("1. Go to {0} and click \"Allow access\".", client.AuthorizeURL()));
+System.out.println("1. Go to " + client.authorizeUrl() + " and click \"Allow access\".");
 System.out.println("2. Then type the oauth_verifier which was passed to the callback URL:");
 
 // In a web app we would get the oauth_verifier via a redirection to CALLBACK_URL.
