@@ -77,10 +77,14 @@ public class Client {
         return new Client(serverLocation, service, new Token(token, secret));
 	}
 
+    @SuppressWarnings("serial")
     public Client loginAsOwner() throws APIError {
         requestToken = service.getRequestToken();
-        JSONObject token = post("/api/v1/users/login_as_owner",
-                new JSONObject().element("request_token", requestToken.getToken()));
+        JSONObject token = post("/api/v1/users/login_as_owner", new HashMap<String, Object>() {
+            {
+                put("request_token", requestToken.getToken());
+            }
+        });
         if (token != null && !token.getJSONObject("token").isNullObject()) {
             return loginWithAccessToken(token.getJSONObject("token").getString("oauth_token"),
                     token.getJSONObject("token").getString("oauth_token_secret"));
@@ -144,11 +148,11 @@ public class Client {
         return request(Verb.DELETE, path, null);
     }
 
-    public JSONObject post(String path, Map params) throws APIError {
+    public JSONObject post(String path, Map<String, Object> params) throws APIError {
         return request(Verb.POST, path, params);
     }
 
-    public JSONObject put(String path, Map params) throws APIError {
+    public JSONObject put(String path, Map<String, Object> params) throws APIError {
         return request(Verb.PUT, path, params);
     }
 
