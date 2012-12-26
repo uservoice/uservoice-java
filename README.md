@@ -21,12 +21,12 @@ Prerequisites:
 
 ```java
 // Suppose your UserVoice site is at http://uservoice-subdomain.uservoice.com/
-public static final String USERVOICE_SUBDOMAIN = "uservoice-subdomain";
-public static final String SSO_KEY = "982c88f2df72572859e8e23423eg87ed"; // Admin Console -> Settings -> General -> User Authentication
+final String USERVOICE_SUBDOMAIN = "uservoice-subdomain";
+final String SSO_KEY = "982c88f2df72572859e8e23423eg87ed"; // Admin Console -> Settings -> General -> User Authentication
 
 // Define an API client at: Admin Console -> Settings -> Channels -> API
-public static final String API_KEY = "oQt2BaunWNuainc8BvZpAm";
-public static final String API_SECRET = "3yQMSoXBpAwuK3nYHR0wpY6opE341inL9a2HynGF2";
+final String API_KEY = "oQt2BaunWNuainc8BvZpAm";
+final String API_SECRET = "3yQMSoXBpAwuK3nYHR0wpY6opE341inL9a2HynGF2";
 
 ```
 
