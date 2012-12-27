@@ -124,7 +124,8 @@ System.out.println("2. Then type the oauth_verifier which was passed to the call
 
 // In a web app we would get the oauth_verifier via a redirection to CALLBACK_URL.
 // In this command-line example we just read it from stdin:
-com.uservoice.Client accessToken = client.loginWithVerifier(Console.ReadLine());
+String verifier = new BufferedReader(new InputStreamReader(System.in)).readLine();
+com.uservoice.Client accessToken = client.loginWithVerifier(verifier);
 
 // All done. Now we can read the current user's email address:
 JSONObject user = accessToken.get("/api/v1/users/current").getJSONObject("user");
