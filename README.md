@@ -71,9 +71,9 @@ try {
     com.uservoice.Client regularAccessToken = client.loginAs("mailaddress@example.com");
 
     // Example request #1: Get current user.
-    JSONObject regularUser = regularAccessToken.get("/api/v1/users/current").getJSONObject("user");
+    JSONObject user = regularAccessToken.get("/api/v1/users/current").getJSONObject("user");
 
-    System.out.println("User: \"" + regularUser.getString("name") + "\", Profile URL: " + regularUser.getString("url"));
+    System.out.println("User: \"" + user.getString("name") + "\", Profile URL: " + user.getString("url"));
 
     // Login as account owner
     com.uservoice.Client ownerAccessToken = client.loginAsOwner();
