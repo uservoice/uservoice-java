@@ -36,4 +36,8 @@ public class ClientTest extends com.uservoice.Test {
         assertEquals(false, result.getJSONObject("user").getJSONObject("roles").getBoolean("owner"));
     }
 
+    @Test
+    public void shouldGet102Users() {
+        assertEquals(102, getConfiguredClient().getCollection("/api/v1/users", 102).size());
+    }
 }

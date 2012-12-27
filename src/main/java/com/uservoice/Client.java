@@ -156,4 +156,8 @@ public class Client {
         return request(Verb.PUT, path, params);
     }
 
+    public Collection getCollection(String path, int limit) {
+        return new Collection(this, path, limit);
+    }
+
 }
