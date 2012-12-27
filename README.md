@@ -22,7 +22,8 @@ Prerequisites:
 ```java
 // Suppose your UserVoice site is at http://uservoice-subdomain.uservoice.com/
 final String USERVOICE_SUBDOMAIN = "uservoice-subdomain";
-final String SSO_KEY = "982c88f2df72572859e8e23423eg87ed"; // Admin Console -> Settings -> General -> User Authentication
+// Get SSO KEY from Admin Console -> Settings -> General -> User Authentication
+final String SSO_KEY = "982c88f2df72572859e8e23423eg87ed";
 
 // Define an API client at: Admin Console -> Settings -> Channels -> API
 final String API_KEY = "oQt2BaunWNuainc8BvZpAm";
