@@ -86,8 +86,8 @@ try {
             put("allow_by_email_domain", true);
             put("allowed_email_domains" = new ArrayList< Map<String,String> {{
                 add(new HashMap<String, String>() {{
-		    put("domain", "example.com");
-		}});
+                    put("domain", "example.com");
+                }});
             }})
         }}
     }}).getJSONObject("forum");
