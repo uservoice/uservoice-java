@@ -40,7 +40,7 @@ Generating the SSO token from SSO key and given uservoice subdomain can be done 
 
 ```java
     String ssoToken = com.uservoice.SSO.generateToken(USERVOICE_SUBDOMAIN, SSO_KEY, new HashMap<String, String>() {{
-        put("display_name, "John Doe");
+        put("display_name", "John Doe");
         put("email", "john.doe@example.com");
     }}, 5*60); // the token will be valid for 5 minutes (5*60 seconds) by default
 
