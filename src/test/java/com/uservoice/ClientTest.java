@@ -2,32 +2,15 @@ package com.uservoice;
 
 import static org.junit.Assert.*;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.Map;
 
 import net.sf.json.JSONObject;
 
 import org.junit.Test;
-import org.yaml.snakeyaml.Yaml;
 
-public class ClientTest {
-    private Map<String, String> configuration = null;
+public class ClientTest extends com.uservoice.Test {
 
-    @SuppressWarnings("unchecked")
-    private String config(String name) {
-        if (configuration == null) {
-            try {
-                configuration = new Yaml().loadAs(new FileReader("config.yml"), Map.class);
-            } catch (FileNotFoundException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return configuration.get(name);
-    }
-
-    private Client getConfiguredClient() {
+    protected Client getConfiguredClient() {
         return new Client(config("subdomain_name"), config("api_key"), config("api_secret"), null, null, null,
                 config("uservoice_domain"), config("uservoice_protocol"));
     }

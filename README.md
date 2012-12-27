@@ -34,7 +34,7 @@ SSO-token generation using uservoice library
 --------------------------------------------
 
 SSO-token can be used to create sessions for SSO users. They are capable of synchronizing the user information from one system to another.
-Generating the SSO token from SSO key and given uservoice subdomain can be done by calling com.uservoice.SSO.GenerateToken method like this:
+Generating the SSO token from SSO key and given uservoice subdomain can be done by calling com.uservoice.SSO.generateToken method like this:
 
 ```java
     String ssoToken = com.uservoice.SSO.generateToken(USERVOICE_SUBDOMAIN, SSO_KEY, new HashMap<String, String>() {{
