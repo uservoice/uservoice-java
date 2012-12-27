@@ -24,26 +24,19 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.codec.net.URLCodec;
 
 public class SSO {
-    private static SSO instance = null;
-    private final DateFormat dateFormat;
+    private static final DateFormat dateFormat;
 
-    public static SSO getInstance() {
-        if (instance == null) {
-            instance = new SSO();
-        }
-        return instance;
-    }
-
-    private SSO() {
+    static {
         dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
     }
 
-    public String generateToken(String subdomainName, String ssoKey, Map<String, Object> user) throws Unauthorized {
+    public static String generateToken(String subdomainName, String ssoKey, Map<String, Object> user)
+            throws Unauthorized {
         return generateToken(subdomainName, ssoKey, user, 3600);
     }
 
-    public String generateToken(String subdomainName, String ssoKey, Map<String, Object> user, int validForSeconds)
+    public static String generateToken(String subdomainName, String ssoKey, Map<String, Object> user, int validForSeconds)
             throws Unauthorized {
         URLCodec urlCodec = new URLCodec("ASCII");
         Base64 base64 = new Base64();

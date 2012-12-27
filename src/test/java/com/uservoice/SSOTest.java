@@ -11,7 +11,7 @@ public class SSOTest extends com.uservoice.Test {
     @SuppressWarnings("serial")
     @Test
     public void shouldGenerateSSOToken() throws APIError {
-        String token = SSO.getInstance().generateToken(config("subdomain_name"), config("sso_key"),
+        String token = SSO.generateToken(config("subdomain_name"), config("sso_key"),
                 new HashMap<String, Object>() {
             {
                 put("email", "man.with.only.answers@example.com");
