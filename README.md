@@ -44,7 +44,7 @@ Generating the SSO token from SSO key and given uservoice subdomain can be done 
         put("email", "john.doe@example.com");
     }}, 5*60); // the token will be valid for 5 minutes (5*60 seconds) by default
 
-    System.out.writeln("https://" + USERVOICE_SUBDOMAIN + ".uservoice.com/?sso=" + ssoToken);
+    System.out.println("https://" + USERVOICE_SUBDOMAIN + ".uservoice.com/?sso=" + ssoToken);
 ```
 
 Making API calls
