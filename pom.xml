@@ -3,10 +3,19 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.uservoice</groupId>
     <artifactId>uservoice-java</artifactId>
-    <packaging>jar</packaging>
     <version>0.0.1</version>
+    <packaging>jar</packaging>
+
     <name>uservoice-java</name>
+    <description>Java Client Library for UserVoice API</description>
     <url>https://github.com/uservoice/uservoice-java</url>
+    <licenses>
+        <license>
+            <name>MIT license</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -38,11 +47,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    <description>UserVoice Java SDK</description>
-    <organization>
-        <name>UserVoice</name>
-        <url>http://developer.uservoice.com</url>
-    </organization>
     <scm>
         <connection>scm:git:git@github.com:uservoice/uservoice-java.git</connection>
         <developerConnection>scm:git:git@github.com:uservoice/uservoice-java.git</developerConnection>
