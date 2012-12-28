@@ -130,6 +130,7 @@ public class Client {
     public JSONObject request(Verb method, String path, Map<String, Object> params) throws APIError {
         OAuthRequest request = new OAuthRequest(method, serverLocation + path);
         request.addHeader("Content-Type", "application/json");
+        request.addHeader("API-Client", "uservoice-java-${project.version}");
         request.addHeader("Accept", "application/json");
         if (params != null) {
             request.addPayload(JSONObject.fromObject(params).toString());

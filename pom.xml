@@ -60,10 +60,8 @@
   <build>
     <resources>
       <resource>
-        <directory>.</directory>
-        <includes>
-          <include>VERSION</include>
-        </includes>
+        <directory>src/main/java</directory>
+        <filtering>true</filtering>
       </resource>
     </resources>
     <plugins>
