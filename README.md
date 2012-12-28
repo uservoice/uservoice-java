@@ -8,10 +8,22 @@ This library allows you to easily:
 Installation
 ============
 
-Compile from source by running in the application root
+Install the following in your pom.xml (when using Maven) or use the
+corresponding syntax of your package manager:
 ```sh
-mvn package
+<dependency>
+  <groupId>com.uservoice</groupId>
+  <artifactId>uservoice-java</artifactId>
+  <version>0.0.2</version>
+</dependency>
 ```
+
+Then fetch the package with all the dependencies by running e.g:
+
+```sh
+mvn clean install
+```
+
 
 Now you should be good to go!
 
