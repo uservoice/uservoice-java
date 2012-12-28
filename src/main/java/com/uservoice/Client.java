@@ -76,6 +76,12 @@ public class Client {
         return new Client(serverLocation, service, new Token(token, secret));
 	}
 
+    /**
+     * Logins as the first UserVoice account owner of the subdomain.
+     *
+     * @return The client instance for making API calls as the owner
+     * @throws APIError
+     */
     @SuppressWarnings("serial")
     public Client loginAsOwner() throws APIError {
         requestToken = service.getRequestToken();
@@ -92,6 +98,14 @@ public class Client {
         }
     }
 
+    /**
+     * Logins as the specified email address.
+     *
+     * @param email
+     *            The email of the user to be logged in as
+     * @return The client instance for making API calls as the owner
+     * @throws APIError
+     */
     @SuppressWarnings({ "serial" })
     public Client loginAs(final String email) throws APIError {
         requestToken = service.getRequestToken();
@@ -139,23 +153,72 @@ public class Client {
         return result;
 	}
 
+    /**
+     * Retrieve a client instance for making calls as the user who gave
+     * permission in UserVoice site.
+     *
+     * @param verifier
+     *            the verifier that was passed as a GET paramter or received in
+     *            Out-Of-Band fashion
+     * @return The client for making calls as the authorized and verified user
+     */
     public Client loginWithVerifier(String verifier) {
         Token token = service.getAccessToken(requestToken, new Verifier(verifier));
         return loginWithAccessToken(token.getToken(), token.getSecret());
     }
 
+    /**
+     * Make a GET API call.
+     *
+     * @param path
+     *            The GET path. Include the GET parameters after ?
+     * @return A JSON object.
+     * @throws APIError
+     *             If an error occurs.
+     */
     public JSONObject get(String path) throws APIError {
         return request(Verb.GET, path, null);
     }
 
+    /**
+     * Make a DELETE API call.
+     *
+     * @param path
+     *            The GET path. Include the GET parameters after ?
+     * @return A JSON object.
+     * @throws APIError
+     *             If an error occurs.
+     */
     public JSONObject delete(String path) throws APIError {
         return request(Verb.DELETE, path, null);
     }
 
+    /**
+     * Make a GET POST call.
+     *
+     * @param path
+     *            The GET path. Include the GET parameters after ?
+     * @param params
+     *            The parameters to be passed in the body of the call as JSON
+     * @return A JSON object.
+     * @throws APIError
+     *             If an error occurs.
+     */
     public JSONObject post(String path, Map<String, Object> params) throws APIError {
         return request(Verb.POST, path, params);
     }
 
+    /**
+     * Make a PUT API call.
+     *
+     * @param path
+     *            The GET path. Include the GET parameters after ?
+     * @param params
+     *            The parameters to be passed in the body of the call as JSON
+     * @return A JSON object.
+     * @throws APIError
+     *             If an error occurs.
+     */
     public JSONObject put(String path, Map<String, Object> params) throws APIError {
         return request(Verb.PUT, path, params);
     }
