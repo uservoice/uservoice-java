@@ -63,7 +63,7 @@ try {
 
     System.out.println("Subdomain \"" + USERVOICE_SUBDOMAIN + "\" has " + users.size() + " users.");
 
-    foreach (JSONObject user in users) {
+    for (JSONObject user : users) {
         System.out.println("User: \"" + user.getString("name") + "\", Profile URL: " + user.getString("url"));
     }
 
@@ -79,17 +79,17 @@ try {
     com.uservoice.Client ownerAccessToken = client.loginAsOwner();
 
     // Example request #2: Create a new private forum limited to only example.com email domain.
-    JSONObject forum = ownerAccessToken.Post("/api/v1/forums", new HashMap<String, String>() {{
-        forum = new HashMap<String, String>() {{
+    JSONObject forum = ownerAccessToken.post("/api/v1/forums", new HashMap<String, Object>() {{
+        put("forum", new HashMap<String, Object>() {{
             put("name", "Java Client Private Feedback");
             put("private", true);
             put("allow_by_email_domain", true);
-            put("allowed_email_domains" = new ArrayList< Map<String,String> {{
+            put("allowed_email_domains", new ArrayList<Map<String,String> >() {{
                 add(new HashMap<String, String>() {{
                     put("domain", "example.com");
                 }});
-            }})
-        }}
+            }});
+        }});
     }}).getJSONObject("forum");
 
     System.out.println("Forum \"" + forum.getString("name") + "\" created! URL: " + forum.getString("url"));
