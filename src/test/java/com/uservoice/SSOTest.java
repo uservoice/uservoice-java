@@ -17,9 +17,11 @@ public class SSOTest extends com.uservoice.Test {
                 put("email", "man.with.only.answers@example.com");
             }
         });
+        /*
         System.out.println(config("protocol", "https") + "://" + config("subdomain_name") + "."
                 + config("uservoice_domain", "uservoice.com")
                 + "/?sso=" + token);
+        */
         assertTrue(token.length() > 9);
     }
 }

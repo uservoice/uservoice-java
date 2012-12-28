@@ -6,6 +6,7 @@ import java.util.Map;
 import net.sf.json.JSONObject;
 
 import org.scribe.builder.ServiceBuilder;
+import org.scribe.model.OAuthConstants;
 import org.scribe.model.OAuthRequest;
 import org.scribe.model.Response;
 import org.scribe.model.Token;
@@ -47,7 +48,9 @@ public class Client {
                 .provider(
                         new UserVoiceApi(getValueOrDefault(protocol, "https") + "://" + subdomainName + "."
                                 + getValueOrDefault(uservoiceDomain, "uservoice.com"))).apiKey(apiKey)
-                .apiSecret(apiSecret).build(), new Token(getValueOrDefault(token, ""), getValueOrDefault(secret, "")));
+                .apiSecret(apiSecret).callback(getValueOrDefault(callback, OAuthConstants.OUT_OF_BAND)).build(),
+                new Token(getValueOrDefault(token, ""),
+                getValueOrDefault(secret, "")));
     }
 
     private static String getValueOrDefault(String value, String defaultValue) {
@@ -63,11 +66,6 @@ public class Client {
         this.token = token;
     }
 
-    public Client loginWithVerifier(String verifier) {
-        Verifier v = new Verifier(verifier);
-        Token accessToken = service.getAccessToken(requestToken, v);
-        return new Client(serverLocation, service, accessToken);
-    }
 	public String authorizeUrl() {
 		requestToken = service.getRequestToken();
 		return service.getAuthorizationUrl(requestToken);
@@ -140,6 +138,11 @@ public class Client {
         return result;
 	}
 
+    public Client loginWithVerifier(String verifier) {
+        Token token = service.getAccessToken(requestToken, new Verifier(verifier));
+        return loginWithAccessToken(token.getToken(), token.getSecret());
+    }
+
     public JSONObject get(String path) throws APIError {
         return request(Verb.GET, path, null);
     }
@@ -156,8 +159,12 @@ public class Client {
         return request(Verb.PUT, path, params);
     }
 
-    public Collection getCollection(String path, int limit) {
+    public Collection getCollection(String path, Integer limit) {
         return new Collection(this, path, limit);
+    }
+
+    public Collection getCollection(String path) {
+        return getCollection(path, null);
     }
 
 }

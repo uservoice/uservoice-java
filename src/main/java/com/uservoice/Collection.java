@@ -68,9 +68,9 @@ public class Collection implements Iterable<JSONObject> {
             } else {
                 url = path + "?";
             }
-            System.out.println(url);
+            //System.out.println(url);
             JSONObject result = client.get(url + "per_page=" + perPage + "&page=" + i);
-            System.out.println(result);
+            //System.out.println(result);
             if (result != null && result.names().size() == 2 && !result.getJSONObject("response_data").isNullObject()) {
                 responseData = result.getJSONObject("response_data");
                 for (Object name : result.names()) {
