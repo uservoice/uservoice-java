@@ -84,7 +84,7 @@ try {
             put("name", "Java Client Private Feedback");
             put("private", true);
             put("allow_by_email_domain", true);
-            put("allowed_email_domains", new ArrayList<Map<String,Object>>() {{
+            put("allowed_email_domains", new ArrayList<Map<String,String>>() {{
                 add(new HashMap<String, String>() {{
                     put("domain", "example.com");
                 }});
