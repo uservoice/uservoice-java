@@ -9,6 +9,11 @@
   <name>uservoice-java</name>
   <description>Java Client Library for UserVoice API</description>
   <url>https://github.com/uservoice/uservoice-java</url>
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>7</version>
+  </parent>
   <licenses>
     <license>
       <name>MIT license</name>

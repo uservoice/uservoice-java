@@ -48,7 +48,8 @@ public class Client {
                 .provider(
                         new UserVoiceApi(getValueOrDefault(protocol, "https") + "://" + subdomainName + "."
                                 + getValueOrDefault(uservoiceDomain, "uservoice.com"))).apiKey(apiKey)
-                .apiSecret(apiSecret).callback(getValueOrDefault(callback, OAuthConstants.OUT_OF_BAND)).build(),
+                .apiSecret(getValueOrDefault(apiSecret, apiKey))
+                .callback(getValueOrDefault(callback, OAuthConstants.OUT_OF_BAND)).build(),
                 new Token(getValueOrDefault(token, ""),
                 getValueOrDefault(secret, "")));
     }
