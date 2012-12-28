@@ -50,7 +50,7 @@ Generating the SSO token from SSO key and given uservoice subdomain can be done 
 Making API calls
 ----------------
 
-You need to create an instance of UserVoice\\Client. Get API_KEY and API_SECRET for an API client which you can create
+You need to create an instance of Client. Get API_KEY and API_SECRET for an API client which you can create
 from Admin Console. Go to Settings -> Channels -> API.
 
 ```java
