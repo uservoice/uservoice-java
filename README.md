@@ -39,12 +39,12 @@ SSO-token can be used to create sessions for SSO users. They are capable of sync
 Generating the SSO token from SSO key and given uservoice subdomain can be done by calling com.uservoice.SSO.generateToken method like this:
 
 ```java
-    String ssoToken = com.uservoice.SSO.generateToken(USERVOICE_SUBDOMAIN, SSO_KEY, new HashMap<String, String>() {{
+    String ssoToken = com.uservoice.SSO.generateToken(USERVOICE_SUBDOMAIN, SSO_KEY, new HashMap<String, Object>() {{
         put("display_name", "John Doe");
         put("email", "john.doe@example.com");
     }}, 5*60); // the token will be valid for 5 minutes (5*60 seconds) by default
 
-    System.out.writeln("https://" + USERVOICE_SUBDOMAIN + ".uservoice.com/?sso=" + ssoToken);
+    System.out.println("https://" + USERVOICE_SUBDOMAIN + ".uservoice.com/?sso=" + ssoToken);
 ```
 
 Making API calls
