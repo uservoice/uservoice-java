@@ -8,7 +8,7 @@ This library allows you to easily:
 Installation
 ============
 
-Install the following in your pom.xml (when using Maven) or use the
+Place the following in your pom.xml (when using Maven) or use the
 corresponding syntax of your package manager:
 ```sh
 <dependency>
