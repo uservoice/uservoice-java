@@ -55,7 +55,7 @@
   <scm>
     <connection>scm:git:git@github.com:uservoice/uservoice-java.git</connection>
     <developerConnection>scm:git:git@github.com:uservoice/uservoice-java.git</developerConnection>
-    <url>git@github.com:uservoice/uservoice-java.git</url>
+    <url>https://github.com/uservoice/uservoice-java</url>
   </scm>
   <build>
     <resources>
